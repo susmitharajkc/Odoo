@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ <record id="stock_products" model="ir.ui.view">
+    <field name="name">stock_product</field>
+    <field name="model">pos.config</field>
+    <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='pricing']" position="inside">
+              <div class="col-xs-12 col-md-6 o_setting_box">
+                      <div class="o_setting_left_pane">
+                        <field name="stocks"/>
+
+                      </div>
+                  <div class="o_setting_right_pane">
+                        <label for="stocks" string="Product Stock"/>
+                        <div class="text-muted" style="margin-bottom: 15px;" >
+                            Shows the on hand quantities
+                        </div>
+
+                    </div>
+              </div>
+
+            </xpath>
+
+        </field>
+
+    </record>
+      <data noupdate="1">
+            <function model="pos.config" name="_default_discount_value_on_module_install"/>
+        </data>
+
+</odoo>

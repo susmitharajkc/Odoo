@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <templates id="product_stock_pos_template" xml:space="preserve">
+        <t t-extend="Product">
+         <t t-jquery=".price-tag" t-operation="prepend">
+           <t t-if="(product.type == 'product' )">
+            <div class="overlay" style="padding-top: 0px; padding-left: 1px">
+               <span style="margin: 0px; padding: 0px;font-size: 13px;">stock
+                   <t t-esc="product.qty_available"/>
+               </span>
+               </div>
+           </t>
+       </t>
+
+</t>
+<!--    <t t-name="ProductItem" t-inherit="point_of_sale.ProductItem" t-inherit-mode="extension" owl="1">-->
+<!--    <xpath expr="//t[@t-esc='props.product.display_name']" position="before">-->
+<!--        <div>-->
+<!--            <t t-if="props.product.video_url">-->
+<!--                <button t-on-click="playVideo" style="background-color: #e55ea5">-->
+<!--                <i class="fa fa-video-camera" style="color: white"/>-->
+<!--                </button>-->
+<!--            </t>-->
+<!--        </div>-->
+<!--    </xpath>-->
+<!--    </t>-->
+</templates>
+        <!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<templates id="template" xml:space="preserve">-->
+
+<!--     <t t-name="ProductItem" t-inherit="point_of_sale.ProductItem" t-inherit-mode="extension" owl="1">-->
+<!--        <xpath expr="//span[hasclass('price-tag')]" position="before">-->
+<!--        &lt;!&ndash;             <t t-if="props.product.qty_available"> &ndash;&gt;-->
+<!--            <span class="qty_available">-->
+<!--                <span>-->
+<!--                    stock:-->
+<!--                 </span>-->
+<!--            </span>-->
+<!--        &lt;!&ndash;             </t> &ndash;&gt;-->
+<!--        </xpath>-->
+<!--    </t>-->
+
+
+<!--</templates>-->
