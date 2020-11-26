@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ <record id="pos_conf_restrict_discount" model="ir.ui.view">
+    <field name="name">Restrict_Discount</field>
+    <field name="model">pos.config</field>
+    <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='pricing']" position="inside">
+              <div class="col-xs-12 col-md-6 o_setting_box">
+                      <div class="o_setting_left_pane">
+                        <field name="fixed_discount"/>
+
+                      </div>
+                  <div class="o_setting_right_pane">
+                        <label for="fixed_discount" string="Restricted Discount"/>
+                        <div class="text-muted" style="margin-bottom: 15px;" >
+                            Apply Restriction in User Discount
+                        </div>
+                            <label for="restrict_pos_discount" string="Discount $" class="col-lg-3 o_light_label" attrs="{'invisible': [('fixed_discount', '=', False)]}"/>
+                            <field name="restrict_pos_discount" widget="many2many_tags" attrs="{'invisible': [('fixed_discount', '=', False)]}"/>
+                    </div>
+              </div>
+
+            </xpath>
+
+        </field>
+
+    </record>
+      <data noupdate="1">
+            <function model="pos.config" name="_default_discount_value_on_module_install"/>
+        </data>
+
+</odoo>

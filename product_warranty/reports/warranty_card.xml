@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="warranty_reporting">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <br></br>
+                <div style="text-align:center;color:black!important;"><strong><h1>Warranty Report 2020</h1></strong></div>
+                <t t-if="product">
+                    <div style="text-align:center;color:black!important;"><strong><h3><span t-esc="product"/></h3></strong></div>
+                </t>
+                <t t-if="from_date">
+                    <div style="text-align:left;color:black!important;"><strong>From :<span t-esc="from_date"/></strong></div>
+                </t>
+                <t t-if="to_date">
+                    <div style="text-align:left;color:black!important;"><strong>To :<span t-esc="to_date"/></strong></div>
+                </t>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="text-align:left;color:black!important;">Sl No.</th>
+                            <th style="text-align:left;color:black!important;">Product Name</th>
+                            <th style="text-align:left;color:black!important;">Invoice</th>
+                            <th style="text-align:left;color:black!important;">Customer</th>
+                            <th style="text-align:left;color:black!important;">Warranty Date</th>
+                            <th style="text-align:left;color:black!important;">Status</th>
+                        </tr>
+                    </thead>
+                         <tbody>
+                            <t t-set="i" t-value="1"/>
+                            <t t-foreach="warranty_ids" t-as="doc">
+
+                                <tr colspan="8" style="background-color: lightgray;">
+                                    <td style="text-align:right;">
+                                        <b>
+                                            <span t-esc="i"/>
+                                        </b>
+                                        <t t-set="i" t-value="i+1"/>
+                                    </td>
+                                    <td colspan="7">
+                                        <span t-esc="doc['product']"/>
+                                    </td>
+                                </tr>
+
+                                <t t-set="j" t-value="1"/>
+                                <t t-foreach="doc['details']" t-as="docs">
+                                    <tr>
+                                        <td><span t-att-style="style" t-esc="i-1"/>.
+                                            <span t-att-style="style" t-esc="j"/>
+                                            <t t-set="j" t-value="j+1"/>
+                                        </td>
+                                        <td></td>
+<!--                                    <td><span t-att-style="style" t-esc="doc[doc_index]['product']"/></td>-->
+
+                                    <td><span t-att-style="style" t-esc="docs['invoice']"/></td>
+                                    <td><span t-att-style="style" t-esc="docs['customer']"/></td>
+                                    <td><span t-att-style="style" t-esc="docs['expiry']"/></td>
+                                    <td><span t-att-style="style" t-esc="docs['status']"/></td>
+                                </tr>
+                                </t>
+                            </t>
+<!--                         </t>-->
+                    </tbody>
+                </table>
+            </t>
+        </t>
+    </template>
+</odoo>
+

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <data>
+                <report
+                    id="warranty_reporting"
+                    string="Warranty Report"
+                    model="product_warranty.product_warranty"
+                    report_type="qweb-pdf"
+                    name="product_warranty.warranty_reporting"
+                    file="product_warranty.warranty_reporting"
+                />
+                 <report
+                    id="warranty_report_details_xls"
+                    string="Warranty Report XLS"
+                    model="product_warranty.product_warranty"
+                    report_type="xlsx"
+                    name="product_warranty.warranty_report_details_xls"
+                    file="product_warranty.warranty_report_details_xls"
+                />
+        </data>
+</odoo>

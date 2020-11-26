@@ -5,14 +5,17 @@ odoo.define('point_of_sale.StockProduct', function (require) {
 //    const Registries = require('point_of_sale.Registries');
 
     var models = require('point_of_sale.models');
-//    models.load_fields('stock.quant', ['inventory_quantity']);
-//    console.log("this props",this.props);
-//    models.load_fields('product.product', ['qty_available']);
 
-    console.log(models);
-    console.log("xxxxxxxxxxxx");
-    models.load_fields('product.product', ['type', 'qty_available', 'virtual_available']);
 
+    models.load_fields('pos.product.product', ['qty_available']);
+    console.log(this)
+
+//});
+//
+//    console.log(models);
+//    console.log("xxxxxxxxxxxx");
+//    models.load_fields('product.product', 'qty_available');
+////
 //    models.load_models({
 //        model: 'product.product',
 //        fields: ['qty_avaliable',],

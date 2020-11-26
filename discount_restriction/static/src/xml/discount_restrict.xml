@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="RestrictDiscount" owl="1">
+         <span class="control-button js_discount">
+            <i class="fa fa-tag"></i>
+            <span> </span>
+            <span t-on-click="restrict_discount">Discount Restriction</span>
+        </span>
+    </t>
+
+</templates>
