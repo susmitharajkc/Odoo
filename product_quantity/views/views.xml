@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+        <template id="product_quantity" inherit_id="website_sale.products_item" name="Your Quantity">
+            <xpath expr="//div[hasclass('o_wsale_product_btn')]" position="replace">
+                <div class="o_wsale_product_btn">
+                    <t t-set="product_variant_id" t-value="product._get_first_possible_variant_id()"/>
+                    <input name="product_id" t-att-value="product_variant_id" type="hidden"/>
+                    <t t-if="product_variant_id">
+
+                        <a t-attf-href="#" class="btn btn-secondary a-submit"
+                               aria-label="Add one"
+                               title="Add one">
+                                <i class="fa fa-plus"/>
+                        </a>
+                        <input type="text"  class="form-control btn"
+                               active="False" data-min="1" name="add_qty"
+                               t-att-value="add_qty or 1"/>
+
+                        <a t-attf-href="#" class="btn btn-secondary a-submit" aria-label="Remove one"
+                           title="Remove one">
+                            <i class="fa fa-minus"/>
+                        </a>
+                        <a href="#" role="button" class="btn btn-secondary a-submit" aria-label="Shopping cart"
+                           title="Shopping cart">
+                            <span class="fa fa-shopping-cart"/>
+                        </a>
+                    </t>
+
+                </div>
+            </xpath>
+
+        </template>
+    </data>
+</odoo>
